@@ -1,0 +1,86 @@
+{
+	"executionRoleArn": null,
+	"containerDefinitions": [
+		{
+			"dnsSearchDomains": null,
+			"logConfiguration": {
+				"logDriver": "awslogs",
+				"options": {
+					"awslogs-group": "missions",
+					"awslogs-region": "us-east-1",
+					"awslogs-stream-prefix": "missioncontrol"
+				}
+			},
+			"entryPoint": null,
+			"portMappings": [
+				{
+					"hostPort": 0,
+					"protocol": "tcp",
+					"containerPort": 8443
+				}
+			],
+			"command": null,
+			"linuxParameters": null,
+			"cpu": 0,
+			"environment": [
+				{
+					"name": "REDIS_HOST",
+					"value": "missions.yanz5o.0001.use1.cache.amazonaws.com"
+				},
+				{
+					"name": "CAPTAIN_HOST",
+					"value": "0.0.0.0"
+				},
+				{
+					"name": "REDIS_PORT",
+					"value": "6379"
+				},
+				{
+					"name": "WEB_SERVER_PORT",
+					"value": "8443"
+				},
+				{
+					"name": "CAPTAIN_PORT",
+					"value": "9090"
+				},
+				{
+					"name": "NODE_ENV",
+					"value": "production"
+				},
+				{
+					"name": "DAV_ENV",
+					"value": "simulated"
+				}
+			],
+			"ulimits": null,
+			"dnsServers": null,
+			"mountPoints": [],
+			"workingDirectory": null,
+			"dockerSecurityOptions": null,
+			"memory": 128,
+			"memoryReservation": null,
+			"volumesFrom": [],
+			"image": "649725598653.dkr.ecr.us-east-1.amazonaws.com/missioncontrol",
+			"disableNetworking": null,
+			"essential": true,
+			"links": null,
+			"hostname": null,
+			"extraHosts": null,
+			"user": null,
+			"readonlyRootFilesystem": null,
+			"dockerLabels": null,
+			"privileged": null,
+			"name": "missioncontrol"
+		}
+	],
+	"memory": null,
+	"taskRoleArn": null,
+	"family": "missioncontrol",
+	"requiresCompatibilities": [
+		"EC2"
+	],
+	"networkMode": "bridge",
+	"cpu": null,
+	"volumes": [],
+	"placementConstraints": []
+}
