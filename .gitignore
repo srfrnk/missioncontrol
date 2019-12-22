@@ -1,4 +1,7 @@
 node_modules
-npm-debug.log
-.DS_Store
-.idea
+build
+data
+coverage
+package-lock.json
+k8s/dist/davnn.json
+k8s/dist/zookeeper.json

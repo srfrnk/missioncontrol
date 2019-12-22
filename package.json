@@ -1,38 +1,55 @@
 {
-  "name": "missioncontrol",
-  "version": "0.2.0",
-  "description": "Controls and orchestrates missions between DAV users and vehicles",
+  "name": "apiserver",
+  "version": "1.0.0",
+  "description": "API Server",
   "homepage": "https://github.com/DAVFoundation/missioncontrol#readme",
   "bugs": {
     "url": "https://github.com/DAVFoundation/missioncontrol/issues"
   },
-  "license": "MIT",
-  "author": "Tal Ater <tal@talater.com>",
-  "main": "./server/server-web.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DAVFoundation/missioncontrol.git"
+    "url": "git+https://github.com/DAVFoundation/missioncontrol.git"
   },
+  "engines": {
+    "node": "~11.0.0"
+  },
+  "license": "MIT",
+  "author": "",
+  "main": "index.js",
   "scripts": {
-    "start": "node server/start-servers.js",
-    "test": "gulp js",
-    "thrift": "thrift -gen js:node -strict -recurse -out ./server/thrift ./resources/idl/CaptainMissionControl.thrift"
+    "preinstall": "cp ./.githooks/* .git/hooks",
+    "jest": "gulp jest",
+    "spellcheck": "npx gulp spellcheck",
+    "start": "ts-node ./src/index.ts",
+    "tsc": "gulp tsc",
+    "tslint": "gulp tslint"
   },
   "dependencies": {
-    "@turf/turf": "^5.1.6",
-    "bluebird": "^3.5.1",
-    "express": "^4.16.2",
-    "randomstring": "^1.1.5",
-    "redis": "^2.8.0",
-    "request": "^2.83.0",
-    "thrift": "^0.11.0",
-    "body-parser": "^1.18.2"
+    "cassandra-driver": "~3.5.0",
+    "dav-js": "github:DAVFoundation/dav-js",
+    "express": "~4.16.4",
+    "kafka-node": "~2.6.1",
+    "rxjs": "~5.5.12"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-eslint": "^4.0.2",
-    "gulp-nodemon": "^2.2.1",
-    "gulp-shell": "^0.6.5",
-    "jest-cli": "^22.2.2"
+    "@types/cassandra-driver": "~3.4.0",
+    "@types/chai": "4.1.7",
+    "@types/chai-http": "~4.2.0",
+    "@types/express": "~4.16.1",
+    "@types/jest": "~24.0.11",
+    "@types/kafka-node": "~2.0.8",
+    "chai": "~4.2.0",
+    "chai-http": "4.2.1",
+    "gulp": "~4.0.0",
+    "gulp-jest": "~4.0.2",
+    "gulp-ts-spellcheck": "~1.3.7",
+    "gulp-tslint": "~8.1.4",
+    "gulp-typescript": "~5.0.1",
+    "jest": "~24.7.1",
+    "jest-cli": "~24.7.1",
+    "ts-jest": "~24.0.2",
+    "ts-node": "~8.0.3",
+    "tslint": "~5.15.0",
+    "typescript": "~3.4.2"
   }
 }
